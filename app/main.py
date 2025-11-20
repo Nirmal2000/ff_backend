@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-import os
-
-import uvicorn
 from fastapi import FastAPI, Request
 
 from .routes import router
@@ -28,18 +25,3 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
-
-
-def run() -> None:
-    """Run the uvicorn development server."""
-    uvicorn.run(
-        "app.main:app",
-        host="0.0.0.0",
-        port=int(os.getenv("PORT", "8000")),
-        reload=True,
-        factory=False,
-    )
-
-
-if __name__ == "__main__":
-    run()
