@@ -1,0 +1,28 @@
+[project]
+name = "ff-backend"
+version = "0.1.0"
+description = "Asynchronous FastAPI backend service."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "langchain-openai",
+    "python-dotenv",
+    "httpx",
+]
+
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project.optional-dependencies]
+dev = [
+    "httpx",
+    "pytest",
+    "pytest-asyncio",
+]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
